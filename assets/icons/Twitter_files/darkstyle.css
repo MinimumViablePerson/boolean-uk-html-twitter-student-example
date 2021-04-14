@@ -1,0 +1,286 @@
+/* PAGE SET UP */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body{
+    background-color: black;
+}
+
+/* .left-menu, */
+main{
+    border: 1px solid whitesmoke;
+    margin: 0 10px;;
+}
+
+html{
+--primary-blue:rgba(29,161,242,1.00);
+--primary-gray:rgb(217, 217, 217);
+--text-gray:#6E767D;
+--background-color:rgb(47, 47, 47);
+--border-color:1px solid rgb(84, 84, 84);
+--card-padding: 12px 16px;
+--link-blue: #1B95E0;
+}
+
+body{
+    display: grid;
+    grid-template:
+    ". left-menu  main right-menu . "100vh/
+    1fr 300px 600px 400px 1fr;
+
+    color: var(--primary-gray);
+}
+
+/* LEFT MENU */
+.left-menu{
+    grid-area: left-menu;
+/* }
+
+.menu-container{ */
+    
+    justify-self: right;
+    display: grid;
+    grid-template-rows: 50px 2fr 1fr 50px;
+    padding: 10px;
+    height: 100vh;
+    position: fixed;
+    left: 50px;
+
+
+    
+  
+}
+
+.left-menu .icon{
+    padding: 5px 12px;
+}
+
+/* LEFT MENU NAV  */
+
+.left-menu nav ul{
+    list-style: none;
+}
+
+.left-menu nav li{
+    padding: 12px;
+    display: grid;
+    grid-template-columns: 50px auto;
+    align-items: center;
+}
+
+.left-menu nav li span{
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+/* LEFT MENU TWEET LINK  */
+.left-menu .create-tweet{
+    margin-right: 20px;
+}
+.left-menu .create-tweet a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 50px;
+
+
+    background-color: var(--primary-blue);
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+ 
+}
+
+
+/* LEFT MENU ACCOUNT TAG */
+.account-tag{
+    display: grid;
+    grid-template-columns: 50px 150px 50px ;
+}
+
+img.avatar{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.account-name{
+    display:grid;
+    grid-auto-rows: 25px;
+}
+
+.account-name p{
+    color: var(--text-gray);
+}
+
+.account-tag .account-more{
+    align-self: center;
+}
+
+/* RIGHT MENU */
+
+.right-menu{
+    grid-area: right-menu;
+}
+
+/* RIGHT MENU SEARCH  */
+.right-menu .search{
+    background-color:var(--background-color);
+
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    margin: 10px;
+    height: 40px;
+
+    display: grid;
+    grid-template-columns: 30px 1fr;
+}
+
+.right-menu .search-icon{
+    width: 20px;
+    background-color: var(--background-color);
+    margin-left: 10px;
+    align-self:  center;
+}
+
+.right-menu .search-bar{
+    background-color: initial;
+}
+
+.right-menu .search-bar input{
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    margin: 0 10px;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+    height: 100%;
+}
+
+
+
+input, select, textarea{
+    color: var(--text-gray);
+}
+
+/* RIGHT MENU NEWS */
+.right-menu .news,
+.right-menu .to-follow-small{
+
+background-color:var(--background-color) ;
+padding: 5px;
+border-radius: 20px;
+margin: 10px;
+}
+
+.right-menu h2{
+    background-color: var(--background-color);
+    border-bottom:var(--border-color) ;
+    padding: var(--card-padding);
+    font-size: 1.1rem;
+}
+
+.news .new-card{
+display: grid;
+grid-template-columns: 1fr 80px;
+background-color: var(--background-color);
+padding: var(--card-padding);
+border-bottom: var(--border-color);
+}
+
+.news .new-card img{
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 10px;
+    justify-self: right;
+
+}
+
+.news .new-card svg{
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
+    border-radius: 10px;
+    justify-self: right;
+    
+    fill: var(--text-gray);
+
+}
+
+.new-card .trending-news,
+.new-card .trending-keyword{
+background-color: var(--background-color);
+}
+
+
+.new-card  span,
+.new-card  .trending-tag span{
+color: var(--text-gray);
+font-size: 0.8rem;
+}
+
+.new-card .trending-tag a{
+color: var(--link-blue);
+font-size: 0.8rem;
+}
+
+.new-card h3{
+font-size: 14px;
+}
+
+a.show-more{
+    color: var(--link-blue);
+    padding: 24px 16px;
+    text-decoration: none;
+    line-height: 50px;
+    
+}
+
+/* RIGHT MENU TO FOLLOW  */
+.user-card{
+    display: grid;
+    grid-template-columns: 50px 1fr 80px;
+    padding: var(--card-padding);
+    border-bottom: var(--border-color);
+}
+
+.follow{
+    color: var(--link-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 80px;
+    height: 30px;
+
+    text-decoration: none;
+    font-weight: 700;
+    
+    border:1px solid var(--link-blue);
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+main{
+    grid-area: main;
+}

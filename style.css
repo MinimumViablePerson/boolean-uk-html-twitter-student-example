@@ -1,0 +1,831 @@
+/* PAGE SET UP */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+html{
+--primary-blue:rgba(29,161,242,1.00);
+--primary-gray:rgb(217, 217, 217);
+--text-gray:#6E767D;
+--background-color:rgb(31, 31, 31);
+--border-color:1px solid rgb(84, 84, 84);
+--card-padding: 12px 16px;
+--link-blue: #1B95E0;
+--hover-background:rgba(29,161,242,0.2);
+--hover-card-background: #373737;
+--website-background:black;
+--icon-color:#d9d9d9;
+}
+
+.light{
+    --website-background:white;
+    --background-color:rgb(227, 237, 244);
+    --primary-gray:rgb(0, 0, 0);
+    --text-gray:#595f63;
+    --border-color:1px solid rgb(203, 203, 203);
+   --icon-color: #1B95E0;
+   --hover-card-background: rgba(206, 226, 240, 0.866);
+}
+
+
+
+body{
+    display: grid;
+    grid-template:
+    ". left-menu  main right-menu . "100vh/
+    1fr 300px 600px 400px 5fr;
+
+    color: var(--primary-gray);
+    /* background-image: url(assets/images/black.jpeg); */
+    background-color:var(--website-background);
+}
+
+nav svg.active-page{
+    fill:var(--link-blue)
+}
+svg.top-tweet :hover,
+ svg.more-icon:hover{
+    fill: var(--link-blue);
+}
+
+li:hover{
+    background-color: var(--hover-background);
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+
+/* LEFT MENU */
+.left-menu{
+    grid-area: left-menu;
+
+    justify-self: right;
+    display: grid;
+    grid-template-rows: 50px 500px 1fr 50px;
+    padding: 10px;
+    height: 100vh;
+
+    position: fixed;
+    left: 30px;
+    
+}
+
+.left-menu .icon{
+    padding: 5px 12px;
+}
+
+.icon svg{
+fill: var(--icon-color);
+}
+
+/* LEFT MENU NAV  */
+
+.left-menu nav ul{
+    list-style: none;
+}
+
+.left-menu nav li{
+    padding: 12px;
+    display: grid;
+    grid-template-columns: 50px auto;
+    align-items: center;
+}
+
+.left-menu nav li span{
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+svg.nav{
+    fill: var(--primary-gray);
+}
+
+
+
+/* LEFT MENU TWEET LINK  */
+.left-menu .create-tweet{
+    margin-right: 20px;
+}
+.left-menu .create-tweet a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 50px;
+
+
+    background-color: var(--primary-blue);
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+ 
+}
+
+.create-tweet a.small-button{
+    display: none;
+}
+
+/* LEFT MENU ACCOUNT TAG */
+.left-menu .account-tag{
+    display: grid;
+    grid-template-columns: 50px 150px 50px ;
+}
+
+.left-menu .account-tag:hover{
+    background-color: var(--hover-background);
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+img.avatar{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.account-name{
+    display:grid;
+    grid-auto-rows: 25px;
+}
+
+.account-name p{
+    color: var(--text-gray);
+}
+
+.account-tag .more-icon{
+    align-self: center;
+}
+
+/* RIGHT MENU */
+
+.right-menu{
+    grid-area: right-menu;
+}
+
+/* RIGHT MENU SEARCH  */
+.right-menu .search{
+    background-color:var(--background-color);
+
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    margin: 10px;
+    height: 40px;
+
+    display: grid;
+    grid-template-columns: 30px 1fr;
+}
+
+.right-menu .search-icon{
+    width: 20px;
+    background-color: var(--background-color);
+    margin-left: 10px;
+    align-self:  center;
+}
+
+.right-menu .search-bar{
+    background-color: initial;
+}
+
+.right-menu .search-bar input{
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    margin: 0 10px;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+    height: 100%;
+}
+
+input, select, textarea{
+    color: var(--text-gray);
+}
+
+/* RIGHT MENU NEWS */
+.right-menu .news,
+.right-menu .to-follow-small{
+
+background-color:var(--background-color) ;
+padding: 5px;
+border-radius: 20px;
+margin: 10px;
+}
+
+.news .new-card:hover,
+.to-follow-small .user-card:hover{
+    background-color: var(--hover-card-background);
+}
+
+.right-menu h2{
+    background-color: var(--background-color);
+    border-bottom:var(--border-color) ;
+    padding: var(--card-padding);
+    font-size: 1.1rem;
+}
+
+.news .new-card{
+display: grid;
+grid-template-columns: 1fr 80px;
+background-color: var(--background-color);
+padding: var(--card-padding);
+border-bottom: var(--border-color);
+}
+
+.news .new-card img{
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 10px;
+    justify-self: right;
+
+}
+
+.news .new-card svg{
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
+    border-radius: 10px;
+    justify-self: right;
+}
+
+
+.new-card  span,
+.new-card  .trending-tag span{
+color: var(--text-gray);
+font-size: 0.8rem;
+}
+
+.new-card .trending-tag a{
+color: var(--link-blue);
+font-size: 0.8rem;
+text-decoration: none;
+}
+
+.new-card .trending-tag a:hover{
+    text-decoration: underline;
+}
+
+
+.new-card h3,
+.tweet-account-name h2{
+font-size: 1rem;
+margin: 5px 0;
+}
+
+a.show-more{
+    color: var(--link-blue);
+    padding: 24px 16px;
+    text-decoration: none;
+    line-height: 50px;
+    
+}
+
+/* RIGHT MENU TO FOLLOW  */
+.user-card{
+    display: grid;
+    grid-template-columns: 50px 1fr 80px;
+    padding: var(--card-padding);
+    border-bottom: var(--border-color);
+}
+
+.follow{
+    color: var(--link-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 80px;
+    height: 30px;
+
+    text-decoration: none;
+    font-weight: 700;
+    
+    border:1px solid var(--link-blue);
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+/* RIGHT MENU FOOTER  */
+footer{
+    display: grid;
+    
+}
+.footer ul{
+    list-style: none;
+    padding: var(--card-padding);
+}
+.footer ul li{
+    display: inline-block;
+    padding: 0 5px;
+}
+
+.footer ul li a{
+    color: var(--text-gray);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.footer ul li a:hover{
+text-decoration: underline;
+}
+
+
+/* MAIN  */
+main{
+    grid-area: main;
+    background-color:var(--website-background) ;
+    /* overflow: scroll; */
+
+}
+
+/* MAIN HEADER  */
+main header{
+    display: grid;
+    grid-template-columns: 1fr 30px;
+    padding: var(--card-padding);
+    border-left: var(--border-color);
+    border-right: var(--border-color);
+}
+main header h1{
+  font-size: 1.5rem;  
+}
+
+main header svg{
+    fill: var(--link-blue);
+    justify-self:left;
+}
+
+main header img.avatar{
+    display: none;
+}
+
+
+
+/* CONTENT TEXTAREA  */
+
+
+.content .create-tweet{
+    display: grid;
+    grid-template-columns: 50px 1fr ;
+    padding: var(--card-padding);
+    border: var(--border-color);
+    margin-bottom: 10px;
+}
+
+.create-tweet .avatar{
+    width: 50px;
+    height: 50px;
+}
+
+.create-tweet form{
+    display: grid;
+    grid-template: 
+    "add-caption add-caption" auto
+    "tweet-function post-tweet" 50px/
+    1fr 100px;
+}
+
+.add-caption{
+    grid-area: add-caption;
+    padding: var(--card-padding);
+}
+
+.tweet-function{
+    grid-area: tweet-function;
+    list-style: none;
+    margin-top: 12px;
+    display: grid;
+    grid-template-columns: repeat(5, 40px);
+    grid-gap:15px;
+}
+
+.tweet-function li{
+    width: 40px;
+    height: 40px;
+    display: grid;
+    justify-items: center;
+    align-content: center;
+    
+}
+
+.tweet-function li svg{
+    fill:var(--link-blue);
+    width: 25px;
+  
+}
+
+.post-tweet{
+    grid-area: post-tweet;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: right;
+
+    width: 80px;
+    height: 45px;
+
+
+    background-color: var(--primary-blue);
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    opacity: 0.5;
+    
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border: none;
+}
+
+textarea {
+    appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+  resize: none;
+  }
+
+/* TWEET CARD(UPLOAD MEDIA) */
+.tweet-external-link,
+.tweet-retweet,
+.tweet-media-upload{
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    padding: var(--card-padding);
+    border-left: var(--border-color);
+    border-right: var(--border-color);
+    border-top: var(--border-color);
+
+
+}
+
+.tweet-header{
+    display: grid;
+    grid-template-columns: 1fr 35px;
+}
+
+.tweet-account-name{
+    display: grid;
+    grid-template-columns: repeat(4,auto) 1fr;
+    grid-gap: 5px;
+    position: relative;
+}
+
+.tweet-account-name span{
+    align-self: center;
+    color: var(--text-gray);
+    font-size: 0.8rem;
+}
+
+svg.verified{
+width:20px
+}
+
+.tweet-external-link article img,
+.tweet-retweet .retweet-card article img,
+.tweet-media-upload article img{
+    width: 100%;
+    height: 280px;
+    border-radius: 15px;
+    object-fit: cover;
+    }
+
+.tweet-action-bar{
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4,auto);
+}
+
+.tweet-action-bar li{
+    display: grid;
+    grid-template-columns: repeat(2, 30px);
+    align-items: center;
+}
+
+.tweet-action-bar .tweet-action{
+    width: 20px;
+    fill: var(--text-gray);
+}
+
+.tweet-action-bar span{
+    color: var(--text-gray);
+    font-size: 0.8rem;
+}
+
+/* RETWEET CARD  */
+.retweet-card{
+    border-top: var(--border-color);
+    border-right: var(--border-color);
+    border-left: var(--border-color);
+
+    padding-top: 10px;
+    border-radius: 20px;
+    margin-top: 5px;;
+}
+
+
+
+.retweet-card .tweet-header{
+    grid-template-columns: 25px auto ;
+    margin: 0 10px;
+}
+
+.retweet-card .avatar{
+    width: 20px;
+    height: 20px;
+    align-self: center;
+}
+
+.retweet-card p{
+    padding: 0 10px 10px 10px;
+}
+
+article p a{
+text-decoration: none;
+color: var(--link-blue);  
+}
+
+a.link-card{
+    text-decoration: none;
+    display: grid;
+    border: var(--border-color);
+    border-radius: 20px;
+    margin: 10px 0;
+}
+
+.link-meta-content{
+    padding: var(--card-padding);
+}
+
+.link-card h2{
+    color: var(--primary-gray);
+    font-size: 1rem;
+    font-weight: normal;
+    margin: 5px 0;;
+}
+
+.link-card p{
+    color: var(--text-gray);
+    display: inline-block;
+}
+
+.link-card .link-icon{
+    width: 20px;
+    fill:var(--text-gray);
+    padding-top: 5px;
+    
+}
+
+/* BOTTOM NAV BAR  */
+nav.bottom-nav-bar{
+    width: 100%;
+    height: 60px;
+    background-color: black;
+    padding-top: 15px ;
+    position: fixed;
+    bottom: 0;
+
+    display: none;
+}
+
+nav.bottom-nav-bar ul{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+   
+}
+
+nav.bottom-nav-bar ul li{
+    list-style: none;
+    justify-self: center;
+    
+}
+
+.icon-container{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+.icon-container:hover{
+    background-color: var(--hover-background);
+}
+
+/* HOVER CARD  */
+
+.hover-account-card{
+    display: none;
+    grid-template:
+    "account status" 100px
+    "account-details account-details" auto/
+    180px 120px;
+    background-color: var(--website-background);
+    padding: 10px;
+    border-radius: 20px;
+
+    position: absolute;
+    top:20px;
+    left:-40px;
+
+    box-shadow: 0 0 3px 1px var(--text-gray);
+    transition: 0.2s;
+    
+}
+
+.tweet-account-name:hover .hover-account-card{
+    display: grid;
+}
+
+.hover-account-card .account-tag{
+    grid-area: account;
+    padding: 20px;
+    
+}
+.hover-account-card .account-tag img{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: block;
+}
+.hover-account-card .account-tag h2{
+    font-size: 1rem;
+    display: inline;
+}
+.hover-account-card .account-tag svg{
+    display: inline;
+    height: 20px;
+}
+
+.hover-account-card .status{
+    grid-area: status;
+    width: 100px;
+    height: 50px;
+    background-color: var(--link-blue);
+    
+    border: none;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+
+    outline: inherit;
+    margin: 10px;
+	padding: 0;
+
+    font: inherit;
+	color:white;
+	font: inherit;
+    font-weight: 700;
+    transition: 0.1s;
+}
+.hover-account-card .status .unfol{
+    display: none;
+}
+
+.hover-account-card .status:hover .unfol{
+    display: block;
+    }
+.hover-account-card .status:hover .fol{
+    display: none;
+    }
+    .hover-account-card .status:hover{
+        background-color: rgb(171, 40, 96);
+    }
+
+
+.hover-account-card .account-details{
+    grid-area: account-details;
+    padding: 20px;
+    line-height: 1.3;
+}
+
+.hover-account-card .account-details p{
+    padding: 5px 0;
+}
+
+.hover-account-card .account-details strong{
+    color: var(--primary-gray);
+    font-size: 1rem;
+
+}
+
+.hover-account-card .account-details span{
+    display: inline-block;
+    padding: 10px 20px 10px 0;
+
+}
+
+
+
+/* RESPONSIVE DETAIL  */
+@media screen  and (max-width: 1250px)  {
+    body{
+        grid-template:
+        ". left-menu  main right-menu . "100vh/
+        1fr 80px 600px 6fr 1fr;
+        color: var(--primary-gray);
+    }
+    
+    .left-menu{
+        left: 10px;
+    }
+
+
+    .left-menu nav li{
+        display: block;
+    }
+
+
+    .account-tag .account-name,
+    .account-tag svg,
+    .create-tweet a.big-button,
+    .left-menu nav li span{
+        display: none;
+    }   
+
+    .left-menu .create-tweet a{
+        width: 50px;
+        
+    }
+    
+    .create-tweet a.small-button{
+        display: flex;
+    }
+
+}
+
+@media screen  and (max-width: 990px)  {
+    .right-menu{
+        display: none;
+    }
+
+}
+@media screen  and (max-width: 700px)  {
+body{
+    grid-template:
+    "left-menu  main  "100vh/
+    80px 1fr;
+}
+}
+
+@media screen  and (max-width: 500px)  {
+.left-menu{
+    display: none;
+}
+
+body{
+    grid-template:
+    "main"100vh/
+    1fr;
+}
+
+main header{
+    grid-template-columns:  60px 1fr 30px;
+}
+main header img.avatar{
+    display: block;
+
+}
+
+.content .create-tweet{
+    display: none;
+}
+
+nav.bottom-nav-bar{
+    display: block
+}
+}
